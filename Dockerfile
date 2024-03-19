@@ -12,6 +12,7 @@
 FROM sharelatex/sharelatex
 USER root
 SHELL ["/bin/bash", "-c"]
+RUN tlmgr option repository https://ctan.math.washington.edu/tex-archive/systems/texlive/tlnet/
 RUN tlmgr install scheme-full
 RUN tlmgr update --self --all
 RUN apt-get update && apt-get install -y texlive-full
