@@ -33,5 +33,5 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/sharelatex-sjtu:${{ steps.date.outputs.today }}
-            ${{ secrets.DOCKER_USERNAME }}/sharelatex-sjtu:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/sharelatex-sjtu:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/sharelatex-sjtu:latest
