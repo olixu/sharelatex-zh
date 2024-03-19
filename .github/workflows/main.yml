@@ -33,5 +33,5 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ GITHUB_REPOSITORY_NAME_PART }}:${{ github.ref_name }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ GITHUB_REPOSITORY_NAME_PART }}:latest
+            273601727/sharelatex-sjtu:${{ steps.date.outputs.today }}
+            273601727/sharelatex-sjtu:latest
