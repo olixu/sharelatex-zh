@@ -10,7 +10,7 @@
 # ENTRYPOINT ["/sbin/my_init"]
 
 FROM sharelatex/sharelatex:4.2.1
-
+USE root
 SHELL ["/bin/bash", "-c"]
 # RUN tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
 RUN tlmgr option repository ctan
