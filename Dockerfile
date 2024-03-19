@@ -13,6 +13,8 @@ FROM sharelatex/sharelatex:4.2.1
 
 SHELL ["/bin/bash", "-c"]
 # RUN tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
+RUN tlmgr option repository ctan
+RUN tmmgr update --list
 # RUN tlmgr update --self --all
 RUN tlmgr update --self
 RUN tlmgr install scheme-full
