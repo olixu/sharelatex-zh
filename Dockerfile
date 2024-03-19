@@ -8,8 +8,10 @@
 # RUN bash /overleaf/link.sh
 # WORKDIR /
 # ENTRYPOINT ["/sbin/my_init"]
-SHELL ["/bin/bash", "-c"]
+
 FROM sharelatex/sharelatex:4.2.1
+
+SHELL ["/bin/bash", "-c"]
 RUN tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
 RUN tlmgr update --self --all
 RUN tlmgr install scheme-full
