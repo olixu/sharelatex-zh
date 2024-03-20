@@ -64,7 +64,7 @@ RUN which tlmgr
 RUN tlmgr path add
 
 # Update all packages again after setting 2024 as the active version
-RUN tlmgr update --self --all
+RUN /usr/local/texlive/2024/bin/x86_64-linux/tlmgr update --self --all
 
 # Continue with additional package installations
 RUN apt-get update && apt-get install -y texlive-full
