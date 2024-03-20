@@ -29,13 +29,6 @@ FROM sharelatex/sharelatex
 USER root
 SHELL ["/bin/bash", "-c"]
 
-# Set the repository for tlmgr
-RUN tlmgr option repository https://worker-soft-fog-2a88.radof26549.workers.dev/CTAN/systems/texlive/tlnet
-
-# Install the full scheme and update all packages
-# RUN tlmgr install scheme-full
-# RUN tlmgr update --self --all
-
 # Copy the 2023 directory to 2024 and preserve symbolic links
 RUN cp -a /usr/local/texlive/2023 /usr/local/texlive/2024
 
@@ -52,6 +45,13 @@ RUN rm -rf /usr/local/texlive/2023
 
 # Set the PATH to include the Tex Live 2024 binaries
 ENV PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
+
+# Set the repository for tlmgr
+RUN tlmgr option repository https://worker-soft-fog-2a88.radof26549.workers.dev/CTAN/systems/texlive/tlnet
+
+# Install the full scheme and update all packages
+# RUN tlmgr install scheme-full
+# RUN tlmgr update --self --all
 
 RUN which tlmgr
 
