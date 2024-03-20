@@ -54,7 +54,7 @@ RUN echo '#!/bin/bash\npushd /usr/local/bin\nfor f in $(ls /usr/local/texlive/20
 RUN chmod +x /overleaf/link.sh && bash /overleaf/link.sh
 
 # Update all packages again after setting 2024 as the active version
-RUN tlmgr update --self --all
+RUN tlmgr update --self --all --verbose
 
 # Continue with additional package installations
 RUN apt-get update && apt-get install -y texlive-full
