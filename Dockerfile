@@ -53,9 +53,13 @@ RUN rm -rf /usr/local/texlive/2023
 # Set the PATH to include the Tex Live 2024 binaries
 ENV PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 
+RUN which tlmgr
+
 # Update the links to the new 2024 binaries
 RUN echo '#!/bin/bash\npushd /usr/local/bin\nfor f in $(ls /usr/local/texlive/2024/bin/x86_64-linux)\ndo\n[ -f $f ] || ln -s /usr/local/texlive/2024/bin/x86_64-linux/$f $f\ndone' > /overleaf/link.sh
 RUN chmod +x /overleaf/link.sh && bash /overleaf/link.sh
+
+RUN which tlmgr
 
 # Update all packages again after setting 2024 as the active version
 RUN tlmgr update --self --all
