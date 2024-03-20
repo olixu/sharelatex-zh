@@ -61,6 +61,8 @@ RUN chmod +x /overleaf/link.sh && bash /overleaf/link.sh
 
 RUN which tlmgr
 
+RUN tlmgr path add
+
 # Update all packages again after setting 2024 as the active version
 RUN tlmgr update --self --all
 
