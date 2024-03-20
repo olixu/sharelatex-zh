@@ -35,6 +35,7 @@ RUN cp -a /usr/local/texlive/2023 /usr/local/texlive/2024
 # Remove backups to save space
 RUN rm -rf /usr/local/texlive/2024/tlpkg/backups/*
 
+RUN tlmgr path remove
 
 # Update tlmgr to 2024 version. Note that this relies on the update script being available for 2024.
 RUN wget http://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh || : \
