@@ -42,9 +42,13 @@ RUN cp -a /usr/local/texlive/2023 /usr/local/texlive/2024
 # Remove backups to save space
 RUN rm -rf /usr/local/texlive/2024/tlpkg/backups/*
 
+
 # Update tlmgr to 2024 version. Note that this relies on the update script being available for 2024.
 RUN wget http://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh || : \
     && sh update-tlmgr-latest.sh -- --upgrade || :
+
+# Remove the old 2023 Tex Live directory
+RUN rm -rf /usr/local/texlive/2023
 
 # Set the PATH to include the Tex Live 2024 binaries
 ENV PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
@@ -81,5 +85,3 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install --no-instal
 # Add permissions for shell escape in Tex Live
 RUN echo "shell_escape = t" >> /usr/local/texlive/2024/texmf.cnf
 
-# Remove the old 2023 Tex Live directory
-RUN rm -rf /usr/local/texlive/2023
