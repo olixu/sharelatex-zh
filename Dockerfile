@@ -63,6 +63,8 @@ RUN which tlmgr
 
 RUN tlmgr path add
 
+RUN ls /usr/local/bin -all
+
 # Update all packages again after setting 2024 as the active version
 # RUN /usr/local/texlive/2024/bin/x86_64-linux/tlmgr update --self --all
 RUN tlmgr install scheme-full --verify-repo=none
