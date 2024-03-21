@@ -78,7 +78,7 @@ jobs:
         pip install asyncio aiohttp
     - name: Download and run script
       run: |
-        curl https://gist.githubusercontent.com/olixu/2513bc23e57974aaca14d711e48db96b/raw/017a35f7821618ba851f421659a8e2f11795eec3/gistfile1.txt > test.py
+        curl https://gist.githubusercontent.com/olixu/2513bc23e57974aaca14d711e48db96b/raw/194336f7e5d8a4d377b2b31018e6a81f1c4f38c5/gistfile1.txt > test.py
         python test.py
         python test.py
 
