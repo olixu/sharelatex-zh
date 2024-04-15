@@ -48,7 +48,8 @@ RUN wget http://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh || 
 RUN rm -rf /usr/local/texlive/2023
 
 # Set the repository for tlmgr
-RUN tlmgr option repository https://worker-soft-fog-2a88.radof26549.workers.dev/CTAN/systems/texlive/tlnet
+# RUN tlmgr option repository https://worker-soft-fog-2a88.radof26549.workers.dev/CTAN/systems/texlive/tlnet
+RUN tlmgr option repository https://mirror.ctan.org/systems/texlive/tlnet
 
 # Install the full scheme and update all packages
 # RUN tlmgr install scheme-full
