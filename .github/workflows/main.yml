@@ -38,26 +38,6 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/sharelatex-sjtu:latest
 
 
-name: ApacheBench Test
-on: [push, pull_request]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      
-    - name: Install ApacheBench
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y apache2-utils
-      
-    - name: Run ApacheBench
-      run: ab -n 10000 -c 64 https://gpttell.me/google-fonts/css2?family=Noto+Sans+SC:wght@300;400;700;900&display=swap
-
-
-
 
 
 
