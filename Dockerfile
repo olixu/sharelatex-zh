@@ -37,15 +37,15 @@ RUN rm -rf /usr/local/texlive/2024/tlpkg/backups/*
 
 RUN tlmgr path remove
 
+# Set the PATH to include the Tex Live 2024 binaries
+ENV PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
+
 # Update tlmgr to 2024 version. Note that this relies on the update script being available for 2024.
 RUN wget http://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh || : \
     && sh update-tlmgr-latest.sh -- --upgrade || :
 
 # Remove the old 2023 Tex Live directory
 RUN rm -rf /usr/local/texlive/2023
-
-# Set the PATH to include the Tex Live 2024 binaries
-ENV PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 
 # Set the repository for tlmgr
 RUN tlmgr option repository https://worker-soft-fog-2a88.radof26549.workers.dev/CTAN/systems/texlive/tlnet
