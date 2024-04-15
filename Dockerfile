@@ -58,8 +58,8 @@ RUN tlmgr option repository https://mirror.ctan.org/systems/texlive/tlnet
 RUN which tlmgr
 
 # Update the links to the new 2024 binaries
-RUN echo '#!/bin/bash\npushd /usr/local/bin\nfor f in $(ls /usr/local/texlive/2024/bin/x86_64-linux)\ndo\n[ -f $f ] || ln -s /usr/local/texlive/2024/bin/x86_64-linux/$f $f\ndone' > /overleaf/link.sh
-RUN chmod +x /overleaf/link.sh && bash /overleaf/link.sh
+# RUN echo '#!/bin/bash\npushd /usr/local/bin\nfor f in $(ls /usr/local/texlive/2024/bin/x86_64-linux)\ndo\n[ -f $f ] || ln -s /usr/local/texlive/2024/bin/x86_64-linux/$f $f\ndone' > /overleaf/link.sh
+# RUN chmod +x /overleaf/link.sh && bash /overleaf/link.sh
 
 # RUN which tlmgr
 
