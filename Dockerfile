@@ -58,8 +58,8 @@ RUN tlmgr option repository https://mirror.ctan.org/systems/texlive/tlnet
 RUN which tlmgr
 
 # Update the links to the new 2024 binaries
-# RUN echo '#!/bin/bash\npushd /usr/local/bin\nfor f in $(ls /usr/local/texlive/2024/bin/x86_64-linux)\ndo\n[ -f $f ] || ln -s /usr/local/texlive/2024/bin/x86_64-linux/$f $f\ndone' > /overleaf/link.sh
-# RUN chmod +x /overleaf/link.sh && bash /overleaf/link.sh
+RUN echo '#!/bin/bash\npushd /usr/local/bin\nfor f in $(ls /usr/local/texlive/2024/bin/x86_64-linux)\ndo\n[ -f $f ] || ln -s /usr/local/texlive/2024/bin/x86_64-linux/$f $f\ndone' > /overleaf/link.sh
+RUN chmod +x /overleaf/link.sh && bash /overleaf/link.sh
 
 # RUN which tlmgr
 
@@ -73,6 +73,10 @@ RUN tlmgr install scheme-full --verify-repo=none
 
 # Continue with additional package installations
 RUN apt-get update && apt-get install -y texlive-full
+# RUN apt-get update && \
+#     echo "tzdata tzdata/Areas select Asia" | debconf-set-selections && \
+#     echo "tzdata tzdata/Zones/Asia select Shanghai" | debconf-set-selections && \
+#     DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata texlive-full
 
 # Install font and utility packages
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
