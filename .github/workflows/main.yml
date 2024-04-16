@@ -34,7 +34,7 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/sharelatex-sjtu:1.0.1
+            ${{ secrets.DOCKERHUB_USERNAME }}/sharelatex-sjtu:${{ github.sha }}
             ${{ secrets.DOCKERHUB_USERNAME }}/sharelatex-sjtu:latest
 
 
