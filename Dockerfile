@@ -70,7 +70,8 @@ RUN ls /usr/local/bin -all
 
 # Update all packages again after setting 2024 as the active version
 # RUN /usr/local/texlive/2024/bin/x86_64-linux/tlmgr update --self --all
-RUN tlmgr install scheme-full --verify-repo=none
+RUN tlmgr install scheme-full --verify-repo=none \
+    && rm -rf /usr/local/texlive/2024/texmf-var/web2c
 
 # Continue with additional package installations
 # RUN apt-get update && apt-get install -y texlive-full
