@@ -25,7 +25,8 @@
 # WORKDIR /
 # ENTRYPOINT ["/sbin/my_init"]
 
-FROM sharelatex/sharelatex
+# FROM sharelatex/sharelatex
+FROM sharelatex/sharelatex:5.0.2-RC4
 USER root
 SHELL ["/bin/bash", "-c"]
 
