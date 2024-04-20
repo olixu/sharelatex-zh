@@ -26,7 +26,7 @@
 # ENTRYPOINT ["/sbin/my_init"]
 
 # FROM sharelatex/sharelatex
-FROM sharelatex/sharelatex:5.0.2-RC4
+FROM sharelatex/sharelatex:4.2.3
 USER root
 SHELL ["/bin/bash", "-c"]
 
