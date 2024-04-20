@@ -72,7 +72,7 @@ RUN ls /usr/local/bin -all
 RUN tlmgr install scheme-full --verify-repo=none
 
 # Continue with additional package installations
-RUN apt-get update && apt-get install -y texlive-full
+# RUN apt-get update && apt-get install -y texlive-full
 # RUN apt-get update && \
 #     echo "tzdata tzdata/Areas select Asia" | debconf-set-selections && \
 #     echo "tzdata tzdata/Zones/Asia select Shanghai" | debconf-set-selections && \
